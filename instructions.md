@@ -2,14 +2,21 @@
 
 ### Phase 1: Pre-requisites
 get the AWS account, credentials and pem file ready (same as last assignment)
+Install Apache Maven and Docker Desktop on your PC.
 
+Create a java project with a Jave code file each for training and testing ML models.
+Add a pom.xml Maven file that highlights the dependencies required for the project and their sources.
+Use `mvn package` command to compile the project into a JAR file containing the code as well as all the required dependencies.
 ### Phase 2: Copy data to S3
-We will copy all the datasets given and also the python scripts to s3 in our bucket
+We will copy all the datasets given along with the compiled JAR file of our ML project to sour bucket on S3.
 
 ### Phase 3: Establish an EMR Cluster
 we will create the EMR cluster and give sufficient permissions to ssh into master node
+This includes creating a security key for SSH access as well as adding an inbound rule in our EMR cluster's security group to allow SSH for our local system's IP address.
 
 ### Phase 5: Execute Training Code via Spark-submit
+Perform a SSH access into the EMR cluster from our local terminal using the command provided by EMR cluster and the SSH key we generated during cluster creation.
+
 We will get all the files from s3
 ``` 
 aws s3 sync s3://myprobucket001/ /path/to/files
@@ -18,8 +25,8 @@ We will run the training code using spark-submit
 ```
 spark-submit --class com.example.SparkMLTraining --master yarn /path/to/the/jar
 ```
-- Spark will begin, perform model training in parallel using the core nodes and store the optimally trained model in the S3 bucket - s3://spark-ml-assign/saved_lr_model
-
+- Spark will begin, perform model training in parallel using the core nodes and store the optimally trained model in the S3 bucket - Logistic Regression model: s3://prabhath-wine/saved_lr_model
+Decision Tree model: s3://prabhath-wine/saved_dt_model
 ### Phase 6: Docker Image creation
 1. we will login to docker from terminal
 ```
