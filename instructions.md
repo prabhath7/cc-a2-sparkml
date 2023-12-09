@@ -1,4 +1,4 @@
-# Wine Wuality Prediction
+# Wine Quality Prediction
 
 ### Phase 1: Pre-requisites
 get the AWS account, credentials and pem file ready (same as last assignment)
@@ -13,6 +13,10 @@ We will copy all the datasets given along with the compiled JAR file of our ML p
 ### Phase 3: Establish an EMR Cluster
 we will create the EMR cluster and give sufficient permissions to ssh into master node
 This includes creating a security key for SSH access as well as adding an inbound rule in our EMR cluster's security group to allow SSH for our local system's IP address.
+
+Core Nodes - 1
+Task Nodes - 3
+Total Nodes - 4
 
 ### Phase 5: Execute Training Code via Spark-submit
 Perform a SSH access into the EMR cluster from our local terminal using the command provided by EMR cluster and the SSH key we generated during cluster creation.
