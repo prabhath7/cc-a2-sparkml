@@ -47,7 +47,7 @@ public class SparkMLInference {
         StandardScalerModel featureScalerModel = featureScaler.fit(test);
         test = featureScalerModel.transform(test);
 
-        String modelPath = "/files/saved_dt_model"; // Update with your model path
+        String modelPath = "/files/saved_dt_model/part-00000-86ab8b53-7f8b-49f1-8622-6d81e90cf10b-c000.snappy.parquet"; // Update with your model path
         DecisionTreeClassificationModel savedModel = DecisionTreeClassificationModel.load(modelPath);
 
         Dataset<Row> predictions = savedModel.transform(test);
